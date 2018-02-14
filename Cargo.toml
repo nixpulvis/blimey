@@ -1,0 +1,12 @@
+[package]
+name = "blimey_macros"
+version = "0.1.0"
+authors = ["Nathan Lilienthal <nathan@nixpulvis.com>"]
+
+[lib]
+proc_macro = true
+
+[dependencies]
+syn = "*"
+quote = "*"
+
