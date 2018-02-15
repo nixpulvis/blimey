@@ -2,13 +2,6 @@
 name = "blimey"
 version = "0.1.0"
 dependencies = [
- "blimey_macros 0.1.0",
-]
-
-[[package]]
-name = "blimey_macros"
-version = "0.1.0"
-dependencies = [
  "quote 0.4.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "syn 0.12.12 (registry+https://github.com/rust-lang/crates.io-index)",
 ]

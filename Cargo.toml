@@ -3,10 +3,7 @@ name = "blimey"
 version = "0.1.0"
 authors = ["Nathan Lilienthal <nathan@nixpulvis.com>"]
 
-[lib]
-proc_macro = true
+[workspace]
 
 [dependencies]
-syn = { version = "*", features = ["full", "fold"] }
-quote = "*"
-
+blimey_macros = { path = 'blimey_macros' }

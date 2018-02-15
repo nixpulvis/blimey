@@ -2,10 +2,7 @@
 
 extern crate blimey;
 
-use std::any::Any;
-use blimey::{contract, contractual};
-
-type Contract = &'static Fn(&Any) -> bool;
+use blimey::{Contract, contract, contractual};
 
 // Create contracts.
 const boolean_c: Contract = contract!(&|v| v.downcast_ref::<bool>().is_some());
