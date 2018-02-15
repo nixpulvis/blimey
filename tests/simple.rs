@@ -6,10 +6,16 @@ extern crate blimey_macros;
 mod tests {
     use blimey_macros::contract;
 
+    #[contract]
+    fn check_me() {
+        // noop
+    }
+
     // A very simple function.
     // #[contract = n > 0 -> > 1]
     #[contract]
     fn add1(n: u64) -> u64 {
+        check_me();
         n + 1
     }
 

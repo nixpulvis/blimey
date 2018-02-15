@@ -7,6 +7,6 @@ authors = ["Nathan Lilienthal <nathan@nixpulvis.com>"]
 proc_macro = true
 
 [dependencies]
-syn = { version = "*", features = ["full"] }
+syn = { version = "*", features = ["full", "fold"] }
 quote = "*"
 
