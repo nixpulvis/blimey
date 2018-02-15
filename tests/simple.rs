@@ -11,6 +11,9 @@ type Contract = &'static Fn(&Any) -> bool;
 const boolean_c: Contract = contract!(&|v| v.downcast_ref::<bool>().is_some());
 const integer_c: Contract = contract!(&|v| false);  // TODO: try a number of downcasts.
 // const func_c: Contract = contract!(integer_c boolean_c -> integer_c);
+//
+// // NOTE: Dependent contracts would be sexy as hell.
+// const identity_c: Contract = contract!(integer_c -> &|i| &|o| i == o)
 
 // #[contractual]
 // struct A;
