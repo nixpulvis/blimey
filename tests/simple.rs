@@ -1,16 +1,18 @@
 #![feature(proc_macro)]
+#![allow(dead_code)]
 
 extern crate blimey;
 
 use blimey::{Contract, contract, contractual};
 
 // Create contracts.
-const boolean_c: Contract = contract!(&|v| v.downcast_ref::<bool>().is_some());
-const integer_c: Contract = contract!(&|v| false);  // TODO: try a number of downcasts.
-// const func_c: Contract = contract!(integer_c boolean_c -> integer_c);
+const ANY_C: Contract = contract!(&|_| true);
+const BOOLEAN_C: Contract = contract!(&|v| v.downcast_ref::<bool>().is_some());
+const INTEGER_C: Contract = contract!(&|_| false);  // TODO: try a number of downcasts.
+// const FUNC_C: Contract = contract!(INTEGER_C BOOLEAN_C -> INTEGER_C);
 //
 // // NOTE: Dependent contracts would be sexy as hell.
-// const identity_c: Contract = contract!(integer_c -> &|i| &|o| i == o)
+// const IDENTITY_C: Contract = contract!(ANY_C -> &|i| &|o| i == o)
 
 // #[contractual]
 // struct A;
@@ -25,7 +27,7 @@ fn dont_check_me() {
 }
 
 // A very simple function.
-#[contractual(contract!(integer_c -> integer_c))]
+#[contractual(contract!(INTEGER_C -> INTEGER_C))]
 fn add1(n: u64) -> u64 {
     check_me();
     // TODO: Would be pretty awesome.
