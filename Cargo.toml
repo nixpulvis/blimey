@@ -1,5 +1,5 @@
 [package]
-name = "blimey_macros"
+name = "blimey"
 version = "0.1.0"
 authors = ["Nathan Lilienthal <nathan@nixpulvis.com>"]
 

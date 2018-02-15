@@ -33,10 +33,19 @@ impl Fold for Monitor {
 }
 
 #[proc_macro_attribute]
-pub fn contract(args: TokenStream, input: TokenStream) -> TokenStream {
-    let args: Contract = syn::parse(args).unwrap();
+pub fn contractual(args: TokenStream, input: TokenStream) -> TokenStream {
+    let args: Contract = match syn::parse(args) {
+        Ok(a) => a,
+        Err(e) => Contract("lol".into()),
+    };
     println!("{:?}", args);
     let mut input: ItemFn = syn::parse(input).unwrap();
     let output = Monitor.fold_item_fn(input);
     quote!(#output).into()
 }
+
+#[proc_macro]
+pub fn contract(input: TokenStream) -> TokenStream {
+    input
+}
+
